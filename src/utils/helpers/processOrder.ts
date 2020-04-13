@@ -30,10 +30,12 @@ export const processOrder = async (orders: any): Promise<any> => {
   for (const order of orders) {
     if (order.state === "success") {
       output = handleSuccess();
+      break;
     }
 
     if (order.state === "error") {
       output = handleErrorState(order);
+      break;
     }
 
     if (order.state === "processing") {
