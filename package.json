@@ -120,7 +120,8 @@
       "!src/shared/store/applicationStore.ts",
       "!src/App.tsx",
       "!**/coverage/**",
-      "!src/utils/**"
+      "!src/utils/**",
+      "!src/components/Orders.ts"
     ]
   }
 }
