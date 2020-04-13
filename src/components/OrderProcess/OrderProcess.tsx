@@ -1,5 +1,5 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { Order } from "../Orders";
+import { Order, ResponseObject } from "../Orders";
 import { processOrder } from "../../utils/helpers/processOrder";
 
 interface OrderProcessProps {
@@ -19,7 +19,7 @@ const OrderProcess = (props: OrderProcessProps): ReactElement => {
   const { orders } = props;
 
   useEffect(() => {
-    processOrder(orders).then((output: any) => {
+    processOrder(orders).then((output: ResponseObject) => {
       setOutput(output);
     });
   }, [orders]);

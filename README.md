@@ -1,5 +1,9 @@
 # React Accelerator seed project
 
+# Change data
+
+Change data in the Main.tsx there you will find props for the array.
+
 # Installation.
 
 Do not use `npm` to build this appllication.
