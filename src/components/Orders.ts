@@ -4,9 +4,21 @@ export interface ResponseObject {
     message: string | null;
 }
 
-export interface State {
+export type Order = {
     state: StateProcessing | StateError | StateSuccess;
     errorCode?: ErrorCodeNoStock | ErrorCodeIncorrectDetails | ErrorCodeNull | ErrorCodeUndefined;
+}
+
+export const States: States = {
+    SUCCESS: 'success',
+    ERROR: 'error',
+    PROCESSING: 'processing'
+}
+
+interface States {
+    SUCCESS: StateSuccess;
+    ERROR: StateError;
+    PROCESSING: StateProcessing;
 }
 
 type StateProcessing = 'processing';
