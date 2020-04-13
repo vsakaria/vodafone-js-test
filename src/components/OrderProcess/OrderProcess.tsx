@@ -13,19 +13,21 @@ interface OrderProcessState {
 
 const OrderProcess = (props: OrderProcessProps): ReactElement => {
   const [output, setOutput] = useState<OrderProcessState>({
-    title: "No orders processed",
+    title: "Processing...",
     message: ""
   });
   const { orders } = props;
 
   useEffect(() => {
-    setOutput(processOrder(orders));
+    processOrder(orders).then((output: any) => {
+      setOutput(output);
+    });
   }, [orders]);
 
   return (
     <section>
       <p>{output.title}</p>
-      <p>{output.message}</p>
+      <p data-testid="output-message">{output.message}</p>
     </section>
   );
 };
