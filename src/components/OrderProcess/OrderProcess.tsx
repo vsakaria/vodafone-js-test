@@ -3,23 +3,31 @@ import { Order } from "../Orders";
 import { processOrder } from "../../utils/helpers/processOrder";
 
 interface OrderProcessProps {
-    orders: Order[];
+  orders: Order[];
+}
+
+interface OrderProcessState {
+  title: string;
+  message: string | null;
 }
 
 const OrderProcess = (props: OrderProcessProps): ReactElement => {
+  const [output, setOutput] = useState<OrderProcessState>({
+    title: "No orders processed",
+    message: ""
+  });
+  const { orders } = props;
 
-    const [output, setOutput] = useState({ title: "No orders processed" })
-    const { orders } = props;
+  useEffect(() => {
+    setOutput(processOrder(orders));
+  }, [orders]);
 
-    useEffect(() => {
-        setOutput(processOrder(orders))
-    }, [orders])
-
-    return (
-        <section>
-            {output.title}
-        </section>
-    );
+  return (
+    <section>
+      <p>{output.title}</p>
+      <p>{output.message}</p>
+    </section>
+  );
 };
 
 export default OrderProcess;
