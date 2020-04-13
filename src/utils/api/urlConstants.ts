@@ -1,1 +1,0 @@
-export const ERROR_LOGGING = '/cbo/cwa/logging/log';

@@ -1,8 +1,8 @@
 import React from "react";
-import { render } from "./utils/testing/testingUtlis";
 import App from "./App";
+import { render } from "@testing-library/react";
 
 it("renders welcome message", () => {
-  const { getByTestId } = render(<App appName="SOME_APP" />);
-  expect(getByTestId(/clientSummary/i)).toBeInTheDocument();
+  const { getByText } = render(<App />);
+  expect(getByText('Vodafone Test')).toBeInTheDocument();
 });

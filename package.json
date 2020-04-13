@@ -119,7 +119,8 @@
       "!src/**/I[A-Z]*.ts",
       "!src/shared/store/applicationStore.ts",
       "!src/App.tsx",
-      "!**/coverage/**"
+      "!**/coverage/**",
+      "!src/utils/**"
     ]
   }
 }
